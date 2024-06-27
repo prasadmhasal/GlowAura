@@ -121,11 +121,18 @@
     <Content Include="Images\slider2.png" />
     <Content Include="Images\slider3.jpg" />
     <Content Include="Images\slider4.jpg" />
+    <Content Include="Images\thumbnail.jpg" />
+    <Content Include="User\Add_to_cart.aspx" />
+    <Content Include="User\Allproduct.aspx" />
     <Content Include="User\Chooesproduct.aspx" />
     <Content Include="User\ChooesUndertone.aspx" />
+    <Content Include="User\Eyes.aspx" />
+    <Content Include="User\Face.aspx" />
     <Content Include="User\FindyourShade.aspx" />
+    <Content Include="User\lips.aspx" />
     <Content Include="User\mylogin\login.aspx" />
     <Content Include="User\mylogin\ResetPass.aspx" />
+    <Content Include="User\mylogin\thambnail.aspx" />
     <Content Include="User\product\Eyes.aspx" />
     <Content Include="User\product\Face.aspx" />
     <Content Include="User\product\lipstick.aspx" />
@@ -177,6 +184,20 @@
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\Add_to_cart.aspx.cs">
+      <DependentUpon>Add_to_cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Add_to_cart.aspx.designer.cs">
+      <DependentUpon>Add_to_cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Allproduct.aspx.cs">
+      <DependentUpon>Allproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Allproduct.aspx.designer.cs">
+      <DependentUpon>Allproduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Chooesproduct.aspx.cs">
       <DependentUpon>Chooesproduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,12 +212,33 @@
     <Compile Include="User\ChooesUndertone.aspx.designer.cs">
       <DependentUpon>ChooesUndertone.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Eyes.aspx.cs">
+      <DependentUpon>Eyes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Eyes.aspx.designer.cs">
+      <DependentUpon>Eyes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Face.aspx.cs">
+      <DependentUpon>Face.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Face.aspx.designer.cs">
+      <DependentUpon>Face.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\FindyourShade.aspx.cs">
       <DependentUpon>FindyourShade.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\FindyourShade.aspx.designer.cs">
       <DependentUpon>FindyourShade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\lips.aspx.cs">
+      <DependentUpon>lips.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\lips.aspx.designer.cs">
+      <DependentUpon>lips.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\mylogin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -211,6 +253,13 @@
     </Compile>
     <Compile Include="User\mylogin\ResetPass.aspx.designer.cs">
       <DependentUpon>ResetPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\mylogin\thambnail.aspx.cs">
+      <DependentUpon>thambnail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\mylogin\thambnail.aspx.designer.cs">
+      <DependentUpon>thambnail.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\product\Eyes.aspx.cs">
       <DependentUpon>Eyes.aspx</DependentUpon>

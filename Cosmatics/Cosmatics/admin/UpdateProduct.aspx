@@ -57,6 +57,7 @@
                 <asp:Parameter Name="original_mdt" Type="String" />
                 <asp:Parameter Name="original_Productimage" Type="Object" />
             </UpdateParameters>
+
         </asp:SqlDataSource>
        
     </div>

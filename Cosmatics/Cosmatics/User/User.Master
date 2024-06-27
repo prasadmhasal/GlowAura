@@ -67,7 +67,7 @@
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
                             </svg>
                         </div>
-                        <asp:HyperLink ID="HyperLink4" NavigateUrl="#" runat="server"  style="text-decoration:none; color:aliceblue">Cart 
+                        <asp:HyperLink ID="HyperLink4" NavigateUrl="~/User/Add_to_cart.aspx" runat="server"  style="text-decoration:none; color:aliceblue">Cart 
                           <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
@@ -92,14 +92,17 @@
                                 <asp:HyperLink ID="HyperLink5" NavigateUrl="~/User/UserHome.aspx" class="nav-link active" runat="server">Home</asp:HyperLink>
                             </li>
                             <li class="nav-item">
+                                <asp:HyperLink ID="HyperLink11" NavigateUrl="~/User/Allproduct.aspx" class="nav-link" runat="server">All Product</asp:HyperLink>
+                            </li>
+                            <li class="nav-item">
                                 
-                                <asp:HyperLink ID="HyperLink6" NavigateUrl="#" class="nav-link" runat="server">Lips</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink6" NavigateUrl="~/User/lips.aspx" class="nav-link" runat="server">Lips</asp:HyperLink>
                             </li>
                             <li class="nav-item">
-                                 <asp:HyperLink ID="HyperLink7" NavigateUrl="#" class="nav-link" runat="server">Eyes</asp:HyperLink>
+                                 <asp:HyperLink ID="HyperLink7" NavigateUrl="~/User/Eyes.aspx" class="nav-link" runat="server">Eyes</asp:HyperLink>
                             </li>
                             <li class="nav-item">
-                                <asp:HyperLink ID="HyperLink8" NavigateUrl="#" class="nav-link" runat="server">Face</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink8" NavigateUrl="~/User/Face.aspx" class="nav-link" runat="server">Face</asp:HyperLink>
                             </li>
                             <li class="nav-item">
                                 <asp:HyperLink ID="HyperLink9" NavigateUrl="~/User/FindyourShade.aspx" class="nav-link" runat="server">Find Your Shade</asp:HyperLink>
@@ -107,14 +110,8 @@
                             <li class="nav-item">
                                 <asp:HyperLink ID="HyperLink10" NavigateUrl="~/User/StoreLocation.aspx" class="nav-link" runat="server">Store Locator</asp:HyperLink>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
+                            
+                           
                         </ul>
                     </div>
                 </div>
