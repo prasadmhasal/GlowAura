@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Cosmatics.admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Bundle JS (includes Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Popper.js (separate script) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container-fluid vh-100 overflow-hidden ">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-md-2 col-xl-2 px-sm-2 px-0 bg-dark ">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <a href="" class="d-flex align-items-center mt-3 pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+                            <span class="fs-5 d-none d-sm-inline text-light">Dashbord</span>
+                        </a>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5" id="menu">
+                            <li class="nav-item">
+                                <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink1" runat="server" NavigateUrl="~/admin/AdminHome.aspx">
+                                
+                                    <i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline text-light">Home</span>
+                              
+                                </asp:HyperLink>
+                            </li>
+
+                            <li class="nav-item">
+                                 <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink2" runat="server" NavigateUrl="~/admin/AddProduct.aspx">
+                                    <i class="fs-4 bi-table"></i><span class="ms-1 d-none d-sm-inline text-light">Add Product</span>                              
+                                     </asp:HyperLink>
+                            </li>
+                            <li class="nav-item">
+                                 <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink4" runat="server" NavigateUrl="~/admin/UpdateProduct.aspx">
+                                    <i class="fs-4 bi-grid"></i><span class="ms-1 d-none d-sm-inline text-light">Update Products</span>
+
+                                </asp:HyperLink>
+                            </li>
+                            <li class="nav-item">
+                                 <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink3" runat="server" NavigateUrl="~/admin/DeleteProduct.aspx">
+                                    <i class="fs-4 bi-people"></i><span class="ms-1 d-none d-sm-inline text-light">Delete Product</span>
+                                 </asp:HyperLink>
+                            </li>
+                            <li class="nav-item">
+                                <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink5" runat="server" NavigateUrl="~/admin/UserList.aspx">
+                                   <i class="fs-4 bi-people"></i><span class="ms-1 d-none d-sm-inline text-light">User List</span>
+                                </asp:HyperLink>
+                            </li>
+                        </ul>
+                        <hr>
+                        <div class="dropdown pb-4 align-items-center">
+                            <a href="#" class="d-flex align-items-center text-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <asp:Image ID="Image1" runat="server" CssClass="rounded-circle" Width="50" Height="50" ImageUrl="~/Images/admin/adminpic.jpg" />
+                                <span class="d-none d-sm-inline mx-1 text-light">Admin</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" href="#">New project...</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    
+                                    <asp:HyperLink ID="HyperLink6" class="dropdown-item"  runat="server" NavigateUrl="~/User/mylogin/login.aspx">Sign out</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-10 vh-100 overflow-auto scroll">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                
+            </div>
+
+        </div>
+
+      
+           
+    </form>
+</body>
+</html>
