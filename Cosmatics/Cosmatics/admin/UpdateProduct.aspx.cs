@@ -16,7 +16,7 @@ namespace Cosmatics.admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string cf = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+            string cf = ConfigurationManager.ConnectionStrings["ECommerceConnectionString"].ConnectionString;
             conn = new SqlConnection(cf);
             conn.Open();
 

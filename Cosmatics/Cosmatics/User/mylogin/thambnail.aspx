@@ -16,16 +16,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div class="card bg-dark text-white w-100">
-                <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/thumbnail.jpg" Width="100%" Height="100%"  />
-                <div class="card-img-overlay text-end">
-                    <h5 class="card-title">Card title</h5>
-                   
+        
+            <div class=" bg-dark text-white overflow-hidden">
+                <div class="card-img-overlay d-flex flex-column ">
+                    <asp:HyperLink ID="HyperLink1" runat="server" style="text-decoration:none" NavigateUrl="~/User/mylogin/login.aspx">
+                    <h5 class="card-title text-end mb-0 text-white " >Login</h5>
+                    </asp:HyperLink>
                 </div>
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/thamb.jpg" class="card-img" style="height:100vh" />
             </div>
 
-        </div>
+
+       
     </form>
 </body>
 </html>

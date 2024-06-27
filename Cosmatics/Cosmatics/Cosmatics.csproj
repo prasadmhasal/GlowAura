@@ -121,6 +121,7 @@
     <Content Include="Images\slider2.png" />
     <Content Include="Images\slider3.jpg" />
     <Content Include="Images\slider4.jpg" />
+    <Content Include="Images\thamb.jpg" />
     <Content Include="Images\thumbnail.jpg" />
     <Content Include="User\Add_to_cart.aspx" />
     <Content Include="User\Allproduct.aspx" />

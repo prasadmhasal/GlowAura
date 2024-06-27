@@ -2,26 +2,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="container border shadow mt-3 mb-3 py-2">
-        <div class="d-flex justify-content-evenly flex-row flex-wrap">
+     <div class="container">
+        <div class="d-flex justify-content-center ">
             <asp:DataList ID="DataList1" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" DataKeyField="pid" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand">
                 <ItemTemplate>
-                    <div style="width: 18rem;">
+                    <div class="border shadow" style="width: 18rem; margin:20px">
                         <img class="card-img-top card-image" src="img/Mascara.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Product Category:<%#Eval("pcat")%></h5>
+                            <h6 class="card-title">Product Category:<%#Eval("pcat")%></h6>
                             <p class="card-text">Product Name:<%#Eval("pname")%></p>
                             <p class="card-text"><strong>Price:<%#Eval("price") %></strong><del>$29.99</del> <span class="text-danger">$19.99</span></p>
-                            <h5 class="card-text">Qty
-                           
-                            <asp:DropDownList ID="DropDownList1" runat="server">
+                            <h6 class="card-text">Qty                           
+                            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-select">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 <asp:ListItem>3</asp:ListItem>
                                 <asp:ListItem>4</asp:ListItem>
                                 <asp:ListItem>5</asp:ListItem>
                             </asp:DropDownList>
-                            </h5>
+                            </h6>
                             
                             <div class="d-grid gap-2">
                                 <asp:Button ID="Button1" CommandName="AddToCart" CommandArgument='<%#Eval("pid")%>' class="btn btn-primary rounded-pill bg-dark text-white" runat="server" Text="Add to Cart" />

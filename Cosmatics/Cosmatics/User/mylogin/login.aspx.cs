@@ -14,7 +14,7 @@ namespace Cosmatics.User.mylogin
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string cs = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["ECommerceConnectionString"].ConnectionString;
             conn = new SqlConnection(cs);
             conn.Open();
 
