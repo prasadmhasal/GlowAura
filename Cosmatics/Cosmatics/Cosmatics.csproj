@@ -82,6 +82,7 @@
     <Content Include="admin\UpdateProduct.aspx" />
     <Content Include="admin\UserList.aspx" />
     <Content Include="Images\admin\adminpic.jpg" />
+    <Content Include="Images\background.png" />
     <Content Include="Images\card1.png" />
     <Content Include="Images\card2.png" />
     <Content Include="Images\cos.jpeg" />
