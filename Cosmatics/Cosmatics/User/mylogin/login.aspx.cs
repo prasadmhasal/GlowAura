@@ -22,23 +22,26 @@ namespace Cosmatics.User.mylogin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string email, pass;
-            email = TextBox1.Text;
+            string user, pass ;
+            user = TextBox1.Text;
             pass = TextBox2.Text;
-            string q = $"exec UserLogin '{email}','{pass}'";
+            string q = $"exec UserLogin '{user}','{pass}'";
             SqlCommand cmd = new SqlCommand(q, conn);
             SqlDataReader rdr = cmd.ExecuteReader();
+            
             if (rdr.HasRows)
             {
                 while (rdr.Read())
                 {
-                    if (rdr["acc_email"].Equals("Admin@gmail.com") && rdr["acc_pass"].Equals("Admin") )
+                    if (rdr["acc_user"].Equals(user) && rdr["acc_pass"].Equals(pass) && rdr["acc_role"].Equals("Admin")) 
                     {
+                        Session["username"] = user;
                         Response.Redirect("~/admin/AdminHome.aspx");
                     }
 
-                    if (rdr["acc_email"].Equals(email) && rdr["acc_pass"].Equals(pass) && rdr["acc_role"].Equals("User"))
+                    if (rdr["acc_user"].Equals(user) && rdr["acc_pass"].Equals(pass) && rdr["acc_role"].Equals("User"))
                     {
+                        Session["username"] = user;
                         Response.Redirect("~/User/UserHome.aspx");
                     }
                 }

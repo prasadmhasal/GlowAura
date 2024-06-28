@@ -35,39 +35,34 @@ namespace Cosmatics.admin
                 try
                 {
                     // Save the uploaded file to the 'Product' directory
-                    string fileName = Path.GetFileName(FileUpload1.FileName);
-                    string uploadFolder = Server.MapPath("~/Product/");
-                    string filePath = Path.Combine(uploadFolder, fileName);
+                    //string fileName = Path.GetFileName(FileUpload1.FileName);
+                    //string uploadFolder = Server.MapPath("Product/");
+                    //string filePath = Path.Combine(uploadFolder, fileName);
+
+
+
 
                     // Ensure the 'Product' directory exists
-                    Directory.CreateDirectory(uploadFolder);
+                    //Directory.CreateDirectory(uploadFolder);
 
                     // Save the file
-                    FileUpload1.SaveAs(filePath);
+                    //FileUpload1.SaveAs(filePath);
 
                     // Set the 'pic' variable to the relative path for the database
-                    pic = "~/Product/" + fileName;
+                    //pic = "Product/" + fileName;
 
                     // Get other product details
+                    FileUpload1.SaveAs(Server.MapPath("/Products/") + Path.GetFileName(FileUpload1.FileName));
+                    pic = "/Products/" + Path.GetFileName(FileUpload1.FileName);
                     dt = DateTime.Now.ToString("d/M/yyyy");
                     price = double.Parse(ProductPrice.Text);
 
                     // Construct the SQL query to insert product details
-                    string q = "EXEC AddProducttProc @pname, @pcat, @pic, @price, @dt";
-
+                    string q = $"EXEC AddProducttProc '{pname}','{pcat}','{pic}','{price}','{dt}'";
+                    SqlCommand cmd= new SqlCommand(q, conn);
                     // Execute the query using SqlCommand and parameters
-                    using (SqlCommand cmd = new SqlCommand(q, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@pname", pname);
-                        cmd.Parameters.AddWithValue("@pcat", pcat);
-                        cmd.Parameters.AddWithValue("@pic", pic);
-                        cmd.Parameters.AddWithValue("@price", price);
-                        cmd.Parameters.AddWithValue("@dt", dt);
 
-                        // Execute the query
-                        cmd.ExecuteNonQuery();
-                    }
-
+                    cmd.ExecuteNonQuery();
                     // Display success message
                     Response.Write("<script>alert('Product Added Successfully')</script>");
                 }

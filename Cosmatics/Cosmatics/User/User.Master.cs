@@ -14,9 +14,9 @@ namespace Cosmatics.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["myname"] != null)
+            if (Session["username"] != null)
             {
-                Label1.Text = Session["myname"].ToString();
+                Label1.Text = Session["username"].ToString();
             }
         }
 
@@ -33,9 +33,14 @@ namespace Cosmatics.User
             smtp.Credentials = new NetworkCredential("prasadmhasal@gmail.com", "fxjuqdrhzmmeksyq");
             smtp.EnableSsl = true;
             smtp.Send(mail);
+            Response.Write("<Script>alert('Thank You for Subscription')</script>");
 
         }
 
-        
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("mylogin/login.aspx");
+        }
     }
 }

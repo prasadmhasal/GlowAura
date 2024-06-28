@@ -7,7 +7,7 @@
             <asp:DataList ID="DataList1" runat="server" DataKeyField="pid" RepeatColumns="4" RepeatDirection="Horizontal" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand">
                 <ItemTemplate>
                     <div class="border shadow" style="width: 18rem; margin:20px">
-                        <img class="card-img-top card-image" src="img/Mascara.jpg" alt="Card image cap">
+                        <img class="card-img-top card-image" src='<%#Eval("pic")%>' alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Product Category:<%#Eval("pcat")%></h5>
                             <p class="card-text">Product Name:<%#Eval("pname")%></p>

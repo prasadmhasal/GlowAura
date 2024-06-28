@@ -24,5 +24,12 @@ namespace Cosmatics.User
             Response.Redirect("PlaceOrder.aspx");
 
         }
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlaceOrder.aspx");
+
+        }
+
+
     }
 }

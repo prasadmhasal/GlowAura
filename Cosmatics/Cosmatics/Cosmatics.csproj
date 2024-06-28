@@ -84,6 +84,7 @@
     <Content Include="Images\admin\adminpic.jpg" />
     <Content Include="Images\card1.png" />
     <Content Include="Images\card2.png" />
+    <Content Include="Images\cos.jpeg" />
     <Content Include="Images\Cosmatic_logo.png" />
     <Content Include="Images\cosmatic_logo_black.png" />
     <Content Include="Images\eyes\eyes1.jpg" />
@@ -113,6 +114,7 @@
     <Content Include="Images\lips\lips1.jpg" />
     <Content Include="Images\lips\lips10.jfif" />
     <Content Include="Images\location.jpg" />
+    <Content Include="Images\log.jpg" />
     <Content Include="Images\mascara.jpg" />
     <Content Include="Images\mascara1.jpg" />
     <Content Include="Images\poster1.png" />
@@ -317,7 +319,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Product\" />
+    <Folder Include="Products\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

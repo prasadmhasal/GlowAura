@@ -50,7 +50,7 @@ namespace Cosmatics.User
                         string ql = "exec AddToCart '" + pname + "','" + pcat + "','" + price + "','" + qty + "','" + pic + "','" + dt + "','" + suser + "'";
                         SqlCommand c = new SqlCommand(ql, conn);
                         c.ExecuteNonQuery();
-                        Response.Redirect("Cart.aspx");
+                        Response.Redirect("Add_to_cart.aspx");
                     }
 
                 }
