@@ -27,10 +27,12 @@ namespace Cosmatics.User
                 string pname, pcat, pic, dt, suser;
                 double price, total_price;
                 double qty;
+                int UserId;
                 if (e.CommandName == "AddToCart")
                 {
                     string id = e.CommandArgument.ToString();
                     string q = "EXEC FindProdById  '" + id + "'  ";
+                    string myuser = Session["ID"].ToString();
                     SqlCommand cmd = new SqlCommand(q, conn);
                     SqlDataReader rdr = cmd.ExecuteReader();
                     if (rdr.HasRows)
@@ -40,14 +42,15 @@ namespace Cosmatics.User
                         pcat = rdr["pcat"].ToString();
                         pic = rdr["pic"].ToString();
                         price = double.Parse(rdr["price"].ToString());
+                        UserId = int.Parse(Session["UserId"].ToString());
                         DropDownList dl = (DropDownList)e.Item.FindControl("DropDownList1");
                         qty = int.Parse(dl.SelectedValue.ToString());
                         Response.Write(pname + pcat + pic + price + qty);
                         total_price = price * qty;
                         dt = DateTime.Now.ToString("d-M-yyyy");
-                        suser = "MyUser";
+                        suser = myuser;
                         rdr.Close();
-                        string ql = "exec AddToCart '" + pname + "','" + pcat + "','" + price + "','" + qty + "','" + pic + "','" + dt + "','" + suser + "'";
+                        string ql = "exec AddToCart '" + pname + "','" + pcat + "','" + price + "','" + qty + "','" + pic + "','" + dt + "','" + suser + "','"+UserId+"'";
                         SqlCommand c = new SqlCommand(ql, conn);
                         c.ExecuteNonQuery();
                         Response.Redirect("Add_to_cart.aspx");

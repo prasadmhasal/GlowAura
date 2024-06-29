@@ -39,6 +39,24 @@
 
                     </div>
                     <br />
+                    <div class="form-group">
+                        <asp:Label ID="shade" runat="server" Text="Shade"></asp:Label>
+                        <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
+                            <asp:ListItem>Light</asp:ListItem>
+                            <asp:ListItem>Medium</asp:ListItem>
+                            <asp:ListItem>Deep</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <asp:Label ID="Label1" runat="server" Text="Shade"></asp:Label>
+                        <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control">
+                            <asp:ListItem>Cool</asp:ListItem>
+                            <asp:ListItem>Netural</asp:ListItem>
+                            <asp:ListItem>Warm</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
 
 
                     <div class="form-group text-center">

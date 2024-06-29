@@ -28,20 +28,22 @@ namespace Cosmatics.User.mylogin
             string q = $"exec UserLogin '{user}','{pass}'";
             SqlCommand cmd = new SqlCommand(q, conn);
             SqlDataReader rdr = cmd.ExecuteReader();
-            
             if (rdr.HasRows)
             {
                 while (rdr.Read())
                 {
                     if (rdr["acc_user"].Equals(user) && rdr["acc_pass"].Equals(pass) && rdr["acc_role"].Equals("Admin")) 
                     {
-                        Session["username"] = user;
+                       
+                        Session["ID"] = user;
+                        Response.Write($"<script>alert('{Session["ID"]}')</script>");
                         Response.Redirect("~/admin/AdminHome.aspx");
                     }
 
                     if (rdr["acc_user"].Equals(user) && rdr["acc_pass"].Equals(pass) && rdr["acc_role"].Equals("User"))
                     {
-                        Session["username"] = user;
+                        Session["UserId"] = rdr["ID"].ToString();
+                        Session["ID"] = user;
                         Response.Redirect("~/User/UserHome.aspx");
                     }
                 }

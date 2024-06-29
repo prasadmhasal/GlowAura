@@ -31,9 +31,10 @@
             <div class=" "  style=" position: absolute; top: 20%; left: 70%;">
                 <div class="glass" style="padding: 20px; border-radius: 10px;">
 
-
+                    
                     <div class="text-center">
                         <h4>Login</h4>
+                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                     </div>
 
                     <div class="form-group py-1">

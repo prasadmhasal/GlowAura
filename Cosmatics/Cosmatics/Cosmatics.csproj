@@ -137,6 +137,7 @@
     <Content Include="User\mylogin\login.aspx" />
     <Content Include="User\mylogin\ResetPass.aspx" />
     <Content Include="User\mylogin\thambnail.aspx" />
+    <Content Include="User\placeorder.aspx" />
     <Content Include="User\product\Eyes.aspx" />
     <Content Include="User\product\Face.aspx" />
     <Content Include="User\product\lipstick.aspx" />
@@ -264,6 +265,13 @@
     </Compile>
     <Compile Include="User\mylogin\thambnail.aspx.designer.cs">
       <DependentUpon>thambnail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\placeorder.aspx.cs">
+      <DependentUpon>placeorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\placeorder.aspx.designer.cs">
+      <DependentUpon>placeorder.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\product\Eyes.aspx.cs">
       <DependentUpon>Eyes.aspx</DependentUpon>

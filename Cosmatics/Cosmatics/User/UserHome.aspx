@@ -47,7 +47,7 @@
 
         <div class="container mt-5">
             <div class="col-md-3 mb-3">
-                <asp:Label ID="Label1" runat="server" Text="Our Collections" Font-Size="25px" Font-Bold="True"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Best Collections" Font-Size="25px" Font-Bold="True"></asp:Label>
             </div>
             <div class="row ">
                 <div class="d-flex justify-content-evenly">
