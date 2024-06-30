@@ -105,7 +105,7 @@
                             <div class="row mt-3">
                                 <div class="col-12">
                                
-                                    <asp:Button runat="server"  class="btn btn-primary d-block mx-auto btn-submit" Text="Order Now" OnClick="Unnamed1_Click" />
+                                    <asp:Button runat="server"  class="btn btn-primary d-block mx-auto btn-submit" Text="Order Now" OnClick="Pay_Click" />
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Total Amount </h5>
                     
-                        <asp:Label ID="Label1" class="card-subtitle mb-2 text-muted" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="Label5" class="card-subtitle mb-2 text-muted" runat="server" Text=""></asp:Label>
                     
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     
