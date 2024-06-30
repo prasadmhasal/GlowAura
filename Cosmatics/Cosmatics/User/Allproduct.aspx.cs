@@ -25,7 +25,7 @@ namespace Cosmatics.User
             {
                 conn.Open();
                 string pname, pcat, pic, dt, suser;
-                double price, total_price;
+                double price, totalprice;
                 double qty;
                 int UserId;
                 if (e.CommandName == "AddToCart")
@@ -41,16 +41,16 @@ namespace Cosmatics.User
                         pname = rdr["pname"].ToString();
                         pcat = rdr["pcat"].ToString();
                         pic = rdr["pic"].ToString();
-                        UserId = int.Parse(Session["UserId"].ToString());
+                        //UserId = int.Parse(Session["UserId"].ToString());
                         price = double.Parse(rdr["price"].ToString());
                         DropDownList dl = (DropDownList)e.Item.FindControl("DropDownList1");
                         qty = int.Parse(dl.SelectedValue.ToString());
                         Response.Write(pname + pcat + pic + price + qty);
-                        total_price = price * qty;
+                        totalprice = price * qty;
                         dt = DateTime.Now.ToString("d-M-yyyy");
                         suser = myuser;
                         rdr.Close();
-                        string ql = "exec AddToCart '" + pname + "','" + pcat + "','" + price + "','" + qty + "','" + pic + "','" + dt + "','" + suser + "','"+UserId+"'";
+                        string ql = "exec AddToCart '" + pname + "','" + pcat + "','" + price + "','" + qty + "','" + pic + "','" + dt + "','" + suser + "','"+totalprice+"'";
                         SqlCommand c = new SqlCommand(ql, conn);
                         c.ExecuteNonQuery();
                         Response.Redirect("Add_to_cart.aspx");

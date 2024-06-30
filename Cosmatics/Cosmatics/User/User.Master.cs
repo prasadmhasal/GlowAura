@@ -7,17 +7,25 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.Net.Mail;
 using System.Reflection.Emit;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Cosmatics.User
 {
     public partial class User : System.Web.UI.MasterPage
     {
+        SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] != null)
+            string cf = ConfigurationManager.ConnectionStrings["ECommerceConnectionString"].ConnectionString;
+            conn = new SqlConnection(cf);
+            conn.Open();
+            if (Session["ID"] != null)
             {
-                Label1.Text = Session["username"].ToString();
+                Label1.Text = Session["ID"].ToString();
             }
+            TotalCount();
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -41,6 +49,17 @@ namespace Cosmatics.User
         {
             Session.Abandon();
             Response.Redirect("mylogin/login.aspx");
+        }
+
+        public void TotalCount()
+        {
+            string q = $"select count(prod_id) as prod_id from cart where suser = '{Session["ID"].ToString()}'";
+            SqlCommand c = new SqlCommand(q, conn);
+            SqlDataReader rdr = c.ExecuteReader();
+            rdr.Read();
+            Label2.Text = rdr["prod_id"].ToString();
+
+
         }
     }
 }

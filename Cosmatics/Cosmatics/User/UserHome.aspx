@@ -15,7 +15,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class=" w-100 Container-fluid" style="overflow: hidden">
-        <div class="row ">
+        <div class="row">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -82,6 +82,7 @@
                 </div>
                 
             </div>
+        </div>
         </div>
 
         <div class="container mt-5" >

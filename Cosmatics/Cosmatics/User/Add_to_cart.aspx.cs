@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 
+
 namespace Cosmatics.User
 {
 
@@ -18,47 +19,58 @@ namespace Cosmatics.User
             string cf = ConfigurationManager.ConnectionStrings["ECommerceConnectionString"].ConnectionString;
             conn = new SqlConnection(cf);
             conn.Open();
+            if (!IsPostBack)
+            {
+                FetchCart();
+              
+
+
+            }
+            
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/User/UserHome.aspx");
-        }
-
+       
         protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("PlaceOrder.aspx");
 
         }
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            // Handle Register button click
-            string name = TextBox1.Text;
-            string emailId = TextBox2.Text;
-            string number = TextBox3.Text;
-            string Address = TextBox4.Text;
-            string pincode = TextBox5.Text;
-            string UserId = Session["UserId"].ToString();  
-            string q = $"exec Totalamount '{UserId}'";
-            SqlCommand cmd = new SqlCommand(q, conn);
-            SqlDataReader rdr = cmd.ExecuteReader();
-            if (rdr.HasRows)
-            {
-                while (rdr.Read())
-                {
-                    if (rdr["UserId"].Equals(UserId)) ;
 
-                }
-            }
-            else
-            {
-                Response.Write("<script>alert('Invalid Credentials')</script>");
-            }
+        
+
+        public void FetchCart()
+        {
+            string q = $"select * from cart where suser='{Session["ID"].ToString()}'";
+            SqlCommand cmd = new SqlCommand(q, conn);
+            SqlDataReader r = cmd.ExecuteReader();
+            GridView1.DataSource = r;
+            GridView1.DataBind();
+           
+        }
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Label lb = (Label)GridView1.Rows[e.RowIndex].FindControl("Label1");
+            string id = lb.Text;
+            string q = $"delete from cart where prod_id='{id}'";
+            SqlCommand c = new SqlCommand(q, conn);
+            c.ExecuteNonQuery();
+            FetchCart();
+   
+            Response.Redirect("Add_to_cart.aspx");
         }
 
 
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/UserHome.aspx");
+        }
+        
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/placeorder.aspx");
+        }
     }
 
 
     }
-}
