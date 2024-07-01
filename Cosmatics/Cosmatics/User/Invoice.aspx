@@ -128,6 +128,13 @@
     			height: 800px;
     		}
     	}
+   .invoice-date {
+    font-size: 14px;
+    color: #333;
+    /* Add more styles as needed */
+}
+
+
     </style>
 </head>
 <body>
@@ -143,11 +150,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6 top-left">
-                                        <i class="fa fa-rocket"></i>
+                                       <%-- <i class="fa fa-rocket"></i>--%>
+                                         <asp:Image ID="Image1" runat="server" Height="30%" ImageUrl="~/Images/Cosmatic_logo.png" Style="width: 150px; mix-blend-mode:inherit" class="d-inline-block align-text-top" />
+
                                     </div>
                                     <div class="col-sm-6 top-right">
                                         <h3 class="marginright">INVOICE-1234578</h3>
-                                        <span class="marginright">14 April 2014</span>
+                                        <span class="marginright"><asp:Label ID="LabelDate" runat="server" CssClass="invoice-date"></asp:Label>
+</span>
                                     </div>
                                 </div>
                                 <hr>
@@ -216,6 +226,11 @@
             window.print();
             return false; // Prevent postback of the button
         }
+      
+    // Get today's date
+           
+    
+
 </script>
 </body>
 </html>

@@ -50,7 +50,7 @@ namespace Cosmatics.User
                         dt = DateTime.Now.ToString("d-M-yyyy");
                         suser = myuser;
                         rdr.Close();
-                        string ql = "exec AddToCart '" + pname + "','" + pcat + "','" + price + "','" + qty + "','" + pic + "','" + dt + "','" + suser + "','"+UserId+"'";
+                        string ql = "exec AddToCart '" + pname + "','" + pcat + "','" + price + "','" + qty + "','" + pic + "','" + dt + "','" + suser + "','"+total_price +"'";
                         SqlCommand c = new SqlCommand(ql, conn);
                         c.ExecuteNonQuery();
                         Response.Redirect("Add_to_cart.aspx");

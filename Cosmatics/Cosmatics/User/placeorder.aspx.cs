@@ -23,9 +23,16 @@ namespace Cosmatics.User
             string cs = ConfigurationManager.ConnectionStrings["ECommerceConnectionString"].ConnectionString;
             conn = new SqlConnection(cs);
             conn.Open();
-            
+            if (!IsPostBack)
+            {
+                amount();
+            }
         }
         
+        protected void amount()
+        {
+            Label1.Text = Session["FinalTotal"].ToString();
+        }
 
         protected void Pay_Click(object sender, EventArgs e)
         {

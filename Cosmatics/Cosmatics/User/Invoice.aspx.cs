@@ -34,6 +34,18 @@ namespace Cosmatics.User
                 cm.ExecuteNonQuery();
 
             }
+
+            if (!IsPostBack)
+            {
+                // Get today's date
+                DateTime today = DateTime.Today;
+
+                // Format the date as desired (e.g., "MM/dd/yyyy")
+                string formattedDate = today.ToString("MM/dd/yyyy");
+
+                // Set the text of the Label control
+                LabelDate.Text = formattedDate;
+            }
         }
 
         protected void btnSendInvoice_Click(object sender, EventArgs e)

@@ -2,29 +2,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .order-form .container {
-      color: #4c4c4c;
-      padding: 20px;
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
-      max-width: 650px;
-    }
+            color: #4c4c4c;
+            padding: 20px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+            max-width: 650px;
+        }
 
-    .order-form-label {
-      margin: 8px 0 0 0;
-      font-size: 14px;
-      font-weight: bold;
-    }
+        .order-form-label {
+            margin: 8px 0 0 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
 
-.order-form-input,
-.form-label,
-.form-check-label {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 14px;
+        .order-form-input,
+        .form-label,
+        .form-check-label {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
 
-    }
-
-    .btn-submit:hover {
-      background-color: #0D47A1 !important;
-    }
+        .btn-submit:hover {
+            background-color: #0D47A1 !important;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -54,37 +53,37 @@
                                     <label class="order-form-label">Address</label>
                                     <div data-mdb-input-init class="form-outline">
                                        <asp:TextBox ID="TextBox2" class="form-control order-form-input" runat="server"></asp:TextBox>
-                                        <label class="form-label" for="form5">Street Address</label>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mt-3 pe-sm-2">
+                                        <label class="order-form-label" for="form7">City</label>
                                     <div data-mdb-input-init class="form-outline">
                                        <asp:TextBox ID="TextBox3" class="form-control order-form-input" runat="server"></asp:TextBox>
-                                        <label class="form-label" for="form7">City</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mt-3 ps-sm-0">
+                                        <label class="order-form-label" for="form8">Region</label>
                                     <div data-mdb-input-init class="form-outline">
                                        <asp:TextBox ID="TextBox4" class="form-control order-form-input" runat="server"></asp:TextBox>
-                                        <label class="form-label" for="form8">Region</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mt-3 pe-sm-2">
+                                        <label class="order-form-label" for="form9">Postal / Zip Code</label>
                                     <div data-mdb-input-init class="form-outline">
                                        <asp:TextBox ID="TextBox5" class="form-control order-form-input" runat="server"></asp:TextBox>
-                                        <label class="form-label" for="form9">Postal / Zip Code</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mt-3 ps-sm-0">
+                                        <label class="order-form-label" for="form10">Country</label>
                                     <div data-mdb-input-init class="form-outline">
                                        <asp:TextBox ID="TextBox6" class="form-control order-form-input" runat="server"></asp:TextBox>
-                                        <label class="form-label" for="form10">Country</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mt-3 ps-sm-0">
+                                        <label class="order-form-label" for="form10">Contact</label>
                                     <div data-mdb-input-init class="form-outline">
                                         <asp:TextBox ID="TextBox7" class="form-control order-form-input" runat="server"></asp:TextBox>
-                                        <label class="form-label" for="form10">Contact</label>
                                     </div>
                                 </div>
                             </div>
@@ -98,9 +97,9 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-3">
+                            <div class="row mt-3 ">
                                 <div class="col-12">
-                                    <asp:Button runat="server" class="btn btn-primary d-block mx-auto btn-submit" Text="Order Now" OnClick="Pay_Click" />
+                                    <asp:Button runat="server" class="btn btn-dark d-block mx-auto btn-submit" Text="Order Now" OnClick="Pay_Click" />
                                 </div>
                             </div>
                         </div>
@@ -112,7 +111,7 @@
         <div class="col-lg-4">
             <div class="card m-4" style="width: 100%;">
                 <div class="card-body">
-                    <h5 class="card-title">Total Amount</h5>
+                    <h5 class="card-title">Total Amount:&nbsp;&nbsp <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> </h5>
                     <asp:Label ID="Label5" class="card-subtitle mb-2 text-muted" runat="server" Text=""></asp:Label>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>

@@ -5,8 +5,29 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style>
-        .my{
-            padding:5px;
+        .my {
+            padding: 5px;
+        }
+
+        .ui-w-40 {
+            width: 40px !important;
+            height: auto;
+        }
+
+        .card {
+            box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
+        }
+
+        .ui-product-color {
+            display: inline-block;
+            overflow: hidden;
+            margin: .144em;
+            width: .875rem;
+            height: .875rem;
+            border-radius: 10rem;
+            -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+            vertical-align: middle;
         }
     </style>
 
@@ -30,13 +51,18 @@
 
                         <asp:TemplateField HeaderText="Product Name & Details">
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%#Eval("pname") %>'></asp:Label>
-                                <br />
-                                <asp:Image ID="Img1" ImageUrl='<%#Eval("pic") %>' Height="100" Width="100" runat="server"></asp:Image>
-                                <br />
-                                <asp:Label ID="Label3" runat="server" Text='<%#Eval("pcat") %>'></asp:Label>
+                                <div style="display: flex; flex-direction: row; align-items:center;">
+                                    <asp:Image ID="Img1" ImageUrl='<%#Eval("pic") %>' Height="100" Width="100" runat="server"></asp:Image>
+                                    <div class="me-2 px-3">
+                                    <asp:Label ID="Label2" runat="server" Text='<%#Eval("pname") %>'></asp:Label>
+                                    </div>
+                                    <div class="me-2">
+                                    <asp:Label ID="Label3" runat="server" Text='<%#Eval("pcat") %>'></asp:Label>
+                                    </div>
+                                </div>
                             </ItemTemplate>
                         </asp:TemplateField>
+
 
                         <asp:TemplateField HeaderText="Price">
                             <ItemTemplate>
@@ -46,7 +72,9 @@
 
                         <asp:TemplateField HeaderText="Quantity">
                             <ItemTemplate>
+                                <div class="text-center" style="border:1px solid gray; padding:5px">
                                 <asp:Label ID="Label5" runat="server" Text='<%#Eval("qty") %>'></asp:Label>
+                                </div>
                             </ItemTemplate>
                         </asp:TemplateField>
 
@@ -64,9 +92,9 @@
                     </Columns>
 
                     <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+                    <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="black" />
                     <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                    <RowStyle BackColor="White" ForeColor="#330099" />
+                    <RowStyle BackColor="White" ForeColor="black" />
                     <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
                     <SortedAscendingCellStyle BackColor="#FEFCEB" />
                     <SortedAscendingHeaderStyle BackColor="#AF0101" />
@@ -76,32 +104,26 @@
             </div>
             <!-- / Shopping cart table -->
 
-            <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
-                <div class="mt-4">
-                    <label class="text-muted font-weight-normal">Promocode</label>
-                    <input type="text" placeholder="ABC" class="form-control">
-                </div>
-                <div class="d-flex">
-                    <div class="text-right mt-4 mr-5 me-5">
-                        <label class="text-muted font-weight-normal m-0">Discount</label>
-                        <div class="text-large"><strong>$20</strong></div>
-                    </div>
-                    <div class="text-right mt-4">
-                        <label class="text-muted font-weight-normal m-0">Total price</label>
-                        <div class="text-large">
-                            <asp:Label ID="Label1" runat="server" Text="Label">
+            <div class="d-flex flex-wrap justify-content-end align-items-center pb-4">
+                <div class="text-right mt-4">
+                    <label class="text-muted font-weight-large m-0 fs-4">Total price</label>
+                    <div class="text-end ">
+                        <strong>
+                            <asp:Label ID="Label1" class="text-large fs-4" runat="server" Text="Label"></asp:Label>
 
-                            </asp:Label>
-                        </div>
+                        </strong>
                     </div>
                 </div>
             </div>
 
+
             <div class="text-end">
-                <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
                
 
-                <asp:Button ID="Button1" runat="server" class="btn btn-lg btn-primary mt-2" Text="Checkout" OnClick="Button1_Click" />
+                <asp:Button ID="Button3" runat="server" class="btn btn-lg btn-gray md-btn-flat mt-2 mr-3" Text="Back to shopping" OnClick="Button3_Click"/>
+                
+
+                <asp:Button ID="Button1" runat="server" class="btn btn-lg btn-dark mt-2" Text="Checkout" OnClick="Button1_Click" />
                 
             </div>
         </div>
