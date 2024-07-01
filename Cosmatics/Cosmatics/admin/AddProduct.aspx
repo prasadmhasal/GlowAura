@@ -59,7 +59,7 @@
                     </div>
 
 
-                    <div class="form-group text-center">
+                    <div class="form-group text-center mt-2">
                         <asp:Button ID="Button1" runat="server" Text="Add" CssClass="btn btn-dark btn-block w-100" OnClick="Button1_Click"  />
                     </div>
                 </div>

@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
+
 namespace Cosmatics.User
 {
 
@@ -22,8 +23,8 @@ namespace Cosmatics.User
             if (!IsPostBack)
             {
                 FetchCart();
-              
 
+                GrandTotal();
 
             }
             
@@ -35,8 +36,18 @@ namespace Cosmatics.User
             Response.Redirect("PlaceOrder.aspx");
 
         }
+        public void GrandTotal()
+        {
+            string q = $"select sum(totalprice) as tot from cart where suser='{Session["ID"].ToString()}'";
+            SqlCommand command = new SqlCommand(q, conn);
+            SqlDataReader r = command.ExecuteReader();
+            r.Read();
+            Label1.Text = r["tot"].ToString();
+            double Grandtotal = double.Parse(Label1.Text);
+            Session["FinalTotal"] = Grandtotal;
 
-        
+        }
+
 
         public void FetchCart()
         {
@@ -44,7 +55,7 @@ namespace Cosmatics.User
             SqlCommand cmd = new SqlCommand(q, conn);
             SqlDataReader r = cmd.ExecuteReader();
             GridView1.DataSource = r;
-            GridView1.DataBind();
+            GridView1.DataBind(); 
            
         }
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -52,12 +63,13 @@ namespace Cosmatics.User
             Label lb = (Label)GridView1.Rows[e.RowIndex].FindControl("Label1");
             string id = lb.Text;
             string q = $"delete from cart where prod_id='{id}'";
+
             SqlCommand c = new SqlCommand(q, conn);
             c.ExecuteNonQuery();
-            FetchCart();
-   
+            
             Response.Redirect("Add_to_cart.aspx");
         }
+
 
 
         protected void Button3_Click(object sender, EventArgs e)

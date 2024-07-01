@@ -31,64 +31,60 @@
     <head>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     </head>
-    <div class="conatiner">
-        <div class="row">
-            <div class="col-12 d-flex">
-
-           
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-8">
             <section class="order-form m-4">
                 <div class="container pt-4">
                     <div class="row">
                         <div class="col-12 px-4">
-                            <h1>You can see my Order Form</h1>
-                            <span>with some explanation below</span>
+                            <h1>Order details</h1>
                             <hr class="mt-1" />
                         </div>
 
                         <div class="col-12">
                             <div class="row mx-4">
                                 <div class="col-12">
-                                    <label class="order-form-label">FullName</label>
-                                </div>
-                                <div class="col-sm-6">
+                                    <label class="order-form-label">Full Name</label>
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="text" id="form1" class="form-control order-form-input" />
-                                        
+                                        <asp:TextBox ID="TextBox1" class="form-control order-form-input" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mt-3 mx-4">
-                                <div class="col-12">
-                                    <label class="order-form-label">Adress</label>
-                                </div>
-                                <div class="col-12">
+                                <div class="col-12 mt-3">
+                                    <label class="order-form-label">Address</label>
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="text" id="form5" class="form-control order-form-input" />
+                                       <asp:TextBox ID="TextBox2" class="form-control order-form-input" runat="server"></asp:TextBox>
                                         <label class="form-label" for="form5">Street Address</label>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 mt-2 pe-sm-2">
+                                <div class="col-sm-6 mt-3 pe-sm-2">
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="text" id="form7" class="form-control order-form-input" />
+                                       <asp:TextBox ID="TextBox3" class="form-control order-form-input" runat="server"></asp:TextBox>
                                         <label class="form-label" for="form7">City</label>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 mt-2 ps-sm-0">
+                                <div class="col-sm-6 mt-3 ps-sm-0">
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="text" id="form8" class="form-control order-form-input" />
+                                       <asp:TextBox ID="TextBox4" class="form-control order-form-input" runat="server"></asp:TextBox>
                                         <label class="form-label" for="form8">Region</label>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 mt-2 pe-sm-2">
+                                <div class="col-sm-6 mt-3 pe-sm-2">
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="text" id="form9" class="form-control order-form-input" />
+                                       <asp:TextBox ID="TextBox5" class="form-control order-form-input" runat="server"></asp:TextBox>
                                         <label class="form-label" for="form9">Postal / Zip Code</label>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 mt-2 ps-sm-0">
+                                <div class="col-sm-6 mt-3 ps-sm-0">
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="text" id="form10" class="form-control order-form-input" />
+                                       <asp:TextBox ID="TextBox6" class="form-control order-form-input" runat="server"></asp:TextBox>
                                         <label class="form-label" for="form10">Country</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mt-3 ps-sm-0">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <asp:TextBox ID="TextBox7" class="form-control order-form-input" runat="server"></asp:TextBox>
+                                        <label class="form-label" for="form10">Contact</label>
                                     </div>
                                 </div>
                             </div>
@@ -104,30 +100,27 @@
 
                             <div class="row mt-3">
                                 <div class="col-12">
-                               
-                                    <asp:Button runat="server"  class="btn btn-primary d-block mx-auto btn-submit" Text="Order Now" OnClick="Pay_Click" />
+                                    <asp:Button runat="server" class="btn btn-primary d-block mx-auto btn-submit" Text="Order Now" OnClick="Pay_Click" />
                                 </div>
                             </div>
                         </div>
-                       
                     </div>
                 </div>
             </section>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Total Amount </h5>
-                    
-                        <asp:Label ID="Label5" class="card-subtitle mb-2 text-muted" runat="server" Text=""></asp:Label>
-                    
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
-                </div>
-            </div>
-          </div>
-
         </div>
 
+        <div class="col-lg-4">
+            <div class="card m-4" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Total Amount</h5>
+                    <asp:Label ID="Label5" class="card-subtitle mb-2 text-muted" runat="server" Text=""></asp:Label>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
 
 
 </asp:Content>

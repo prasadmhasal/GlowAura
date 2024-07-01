@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -20,25 +23,23 @@ namespace Cosmatics.User
             string cs = ConfigurationManager.ConnectionStrings["ECommerceConnectionString"].ConnectionString;
             conn = new SqlConnection(cs);
             conn.Open();
-            if (!IsPostBack)
-            {
-               GrandTotal();
-            }
+            
         }
-        public void GrandTotal()
-        {
-            string q = $"select sum(totalprice) as tot from cart where suser='{Session["ID"].ToString()}'";
-            SqlCommand command = new SqlCommand(q, conn);
-            SqlDataReader r = command.ExecuteReader();
-            r.Read();
-            Label5.Text = r["tot"].ToString();
-            double Grandtotal = double.Parse(Label5.Text);
-            Session["FinalTotal"] = Grandtotal;
-          
-        }
+        
 
         protected void Pay_Click(object sender, EventArgs e)
         {
+            string fullName = TextBox1.Text.ToString(); // Replace with actual field ID if different
+            string address = TextBox2.Text.ToString();
+            string city = TextBox3.Text.ToString();
+            string region = TextBox4.Text.ToString();
+            int postalCode =int.Parse(TextBox5.Text.ToString());
+            string country = TextBox6.Text.ToString();
+            double phone =double.Parse (TextBox7.Text.ToString());
+
+            StoreCustomerDetails(fullName, address, city, region, postalCode, country,phone);
+
+
             // Razorpay API Key and Secret
             string razorpayKeyId = "rzp_test_VPel75yVZnzpbD";
             string razorpayKeySecret = "SYoHmR95xmbUb7BNW1SSLzBc";
@@ -63,6 +64,7 @@ namespace Cosmatics.User
 
                 // Extract order ID from the response
                 string orderId = order["id"].ToString();
+                Session["OrderId"] = orderId;
 
                 // Generate Razorpay script
                 string razorpayScript = $@"
@@ -80,6 +82,7 @@ namespace Cosmatics.User
                         alert('Order ID: ' + response.razorpay_order_id);
                         alert('Signature: ' + response.razorpay_signature);
                         // Handle the response after payment success
+                        window.location.href = 'Invoice.aspx';
                     }},
                     'prefill': {{
                         'name': 'Prasad Mhasal', // Customer's name
@@ -104,6 +107,7 @@ namespace Cosmatics.User
 
                 // Inject the Razorpay script into the page
                 ClientScript.RegisterStartupScript(this.GetType(), "razorpay", razorpayScript, false);
+                
             }
             catch (Exception ex)
             {
@@ -112,6 +116,57 @@ namespace Cosmatics.User
                 Response.End();
             }
         }
+        protected void StoreCustomerDetails(string fullName, string address, string city, string region, int postalCode, string country, double phone)
+        {
+            try
+            {
+                // Replace "Your_Connection_String_Here" with your actual SQL Server connection string
+                using (SqlConnection conn = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ECommerce;Integrated Security=True;MultipleActiveResultSets=True"))
+                {
+                    conn.Open();
+
+                    // Create a SqlCommand object for the stored procedure
+                    SqlCommand cmd = new SqlCommand("cust_add", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Add parameters required by the stored procedure
+                    cmd.Parameters.AddWithValue("@name", fullName);
+                    cmd.Parameters.AddWithValue("@address", address);
+                    cmd.Parameters.AddWithValue("@city", city);
+                    cmd.Parameters.AddWithValue("@region", region);
+                    cmd.Parameters.AddWithValue("@postal", postalCode);
+                    cmd.Parameters.AddWithValue("@country", country);
+                    cmd.Parameters.AddWithValue("@suser", Session["ID"].ToString()); // Assuming suser comes from session
+                    cmd.Parameters.AddWithValue("@contact", phone);
+                    cmd.Parameters.AddWithValue("@grandtotal", Session["FinalTotal"].ToString());
+
+                    // Execute the stored procedure
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        // Success message or further processing if needed
+                        Response.Write("<script>alert('Customer details stored successfully.');</script>");
+                    }
+                    else
+                    {
+                        // Handle case where no rows were affected
+                        Response.Write("<script>alert('Failed to store customer details.');</script>");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                Response.Write($"<script>alert('Error: {ex.Message}');</script>");
+            }
+        }
+
+
+
+       
+
+
 
     }
 }
