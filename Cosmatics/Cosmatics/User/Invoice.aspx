@@ -150,14 +150,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6 top-left">
-                                       <%-- <i class="fa fa-rocket"></i>--%>
-                                         <asp:Image ID="Image1" runat="server" Height="30%" ImageUrl="~/Images/Cosmatic_logo.png" Style="width: 150px; mix-blend-mode:inherit" class="d-inline-block align-text-top" />
+                                        <%-- <i class="fa fa-rocket"></i>--%>
+                                        <asp:Image ID="Image1" runat="server" Height="30%" ImageUrl="~/Images/Cosmatic_logo.png" Style="width: 150px; mix-blend-mode: inherit" class="d-inline-block align-text-top" />
 
                                     </div>
                                     <div class="col-sm-6 top-right">
                                         <h3 class="marginright">INVOICE-1234578</h3>
-                                        <span class="marginright"><asp:Label ID="LabelDate" runat="server" CssClass="invoice-date"></asp:Label>
-</span>
+                                        <span class="marginright">
+                                            <asp:Label ID="LabelDate" runat="server" CssClass="invoice-date"></asp:Label>
+                                        </span>
                                     </div>
                                 </div>
                                 <hr>
@@ -171,35 +172,33 @@
                                         <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="05666a6b7164667145617c6b6a637c2b666a68">[email&#160;protected]</a></p>
                                     </div>
                                     <div class="col-xs-4 to">
-                                        <p class="lead marginbottom">To : John Doe</p>
-                                        <p>425 Market Street</p>
-                                        <p>Suite 2200, San Francisco</p>
-                                        <p>California, 94105</p>
-                                        <p>Phone: 415-676-3600</p>
+                                        <p class="lead marginbottom">To : <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></p>
+                                        <p><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></p>
+                                        <p>Phone:<asp:Label ID="Label4" runat="server" Text="Label"></asp:Label> </p>
                                         <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c464344426c484349024f4341">[email&#160;protected]</a></p>
                                     </div>
                                     <div class="col-xs-4 text-right payment-details">
                                         <p class="lead marginbottom payment-info">Payment details</p>
-                                        <p>Date: 14 April 2014</p>
+                                        <p>Date:<asp:Label ID="Label5" runat="server" Text="Label"></asp:Label> </p>
                                         <p>VAT: DK888-777 </p>
-                                        <p>Total Amount: $1019</p>
+                                        <p>Total Amount:<asp:Label ID="Label6" runat="server" Text="Label"></asp:Label> </p>
                                         <p>Account Name: Flatter</p>
                                     </div>
                                 </div>
-                               <div class="table-responsive">
-                    <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-                        <Columns>
-                            <asp:BoundField DataField="pname" HeaderText="Product Name" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Center" SortExpression="pname" />
-                            <asp:BoundField DataField="price" HeaderText="Price ($)" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" SortExpression="price" />
-                            <asp:BoundField DataField="qty" HeaderText="Quantity" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" SortExpression="qty" />
-                            <asp:BoundField DataField="totalprice" HeaderText="Total Price ($)" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" SortExpression="totalprice" />
-                        </Columns>
-                        <HeaderStyle HorizontalAlign="Center" BackColor="#337AB7" ForeColor="White" />
-                        <RowStyle CssClass="odd" />
-                        <AlternatingRowStyle CssClass="even" />         
-                    </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ECommerceConnectionString %>" ProviderName="<%$ ConnectionStrings:ECommerceConnectionString.ProviderName %>" SelectCommand="SELECT [pname], [price], [qty], [totalprice] FROM [placeorder]"></asp:SqlDataSource>
-                </div>
+                                <div class="table-responsive">
+                                    <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                                        <Columns>
+                                            <asp:BoundField DataField="pname" HeaderText="Product Name" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Center" SortExpression="pname" />
+                                            <asp:BoundField DataField="price" HeaderText="Price ($)" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" SortExpression="price" />
+                                            <asp:BoundField DataField="qty" HeaderText="Quantity" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" SortExpression="qty" />
+                                            <asp:BoundField DataField="totalprice" HeaderText="Total Price ($)" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" SortExpression="totalprice" />
+                                        </Columns>
+                                        <HeaderStyle HorizontalAlign="Center" BackColor="#337AB7" ForeColor="White" />
+                                        <RowStyle CssClass="odd" />
+                                        <AlternatingRowStyle CssClass="even" />
+                                    </asp:GridView>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ECommerceConnectionString %>" ProviderName="<%$ ConnectionStrings:ECommerceConnectionString.ProviderName %>" SelectCommand="SELECT [pname], [price], [qty], [totalprice] FROM [placeorder]"></asp:SqlDataSource>
+                                </div>
                                 <div class="row">
                                     <div class="col-xs-6 margintop">
                                         <p class="lead marginbottom">THANK YOU!</p>
@@ -209,13 +208,18 @@
                                     </div>
                                     <div class="col-xs-6 text-right pull-right invoice-total">
                                         <p>Discount (10%) : $101 </p>
-                                        <p>Grandtotal :<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> </p>
-                                       
+                                        <p>Grandtotal :<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                        </p>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <asp:Button ID="Button1" class="btn  rounded bg-dark text-white" runat="server" Text="Home" OnClick="Button1_Click" />
+
                 </div>
             </div>
         </div>

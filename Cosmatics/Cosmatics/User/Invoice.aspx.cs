@@ -20,7 +20,7 @@ namespace Cosmatics.User
             conn = new SqlConnection(cs);
             conn.Open();
             string userID = Session["ID"].ToString();
-            Label1.Text = Session["FinalTotal"].ToString();
+           
             string q = $"INSERT INTO placeorder (pname, pcat, price, qty, pic, dt, suser, totalprice) " +
             "SELECT pname, pcat, price, qty, pic, dt, suser, totalprice " +
             "FROM cart WHERE suser=@userID";
@@ -35,6 +35,9 @@ namespace Cosmatics.User
 
             }
 
+           
+            
+
             if (!IsPostBack)
             {
                 // Get today's date
@@ -45,8 +48,68 @@ namespace Cosmatics.User
 
                 // Set the text of the Label control
                 LabelDate.Text = formattedDate;
+                Label5.Text = formattedDate;
+
+
+                address();
             }
         }
+
+        protected void address()
+        {
+            // Check if Session["ID"] is null or empty
+            if (Session["ID"] != null)
+            {
+                string user = Session["ID"].ToString();
+                string connectionString = ConfigurationManager.ConnectionStrings["ECommerceConnectionString"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = $"exec cus_address '{user}'";
+
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    if (rdr.HasRows)
+                    {
+                        if (rdr.Read())
+                        {
+                            // Retrieve address details
+                            string pname = rdr["name"].ToString(); // Replace with actual column name
+                            string address = rdr["address"].ToString(); // Replace with actual column name
+                            string city = rdr["city"].ToString(); // Replace with actual column name
+                            string contact = rdr["contact"].ToString(); // Replace with actual column name
+
+                            // Display address details in labels
+                            Label2.Text = pname;
+                            Label3.Text = address;
+                            Label4.Text = city;
+                            Label5.Text = contact; // Adjust as per your UI
+                            Label1.Text = Session["FinalTotal"].ToString();
+                            // Example of using Session["FinalTotal"] if it's an integer
+                            // int finalTotal = Convert.ToInt32(Session["FinalTotal"]);
+                            // Label6.Text = finalTotal.ToString();
+                        }
+                    }
+                    else
+                    {
+                        // No rows found
+                        // Handle this scenario based on your application logic
+                    }
+
+                    rdr.Close();
+                }
+            }
+            else
+            {
+                // Handle session ID null case (Session["ID"] is null or session expired)
+                // For example, redirect to login or handle accordingly
+                Response.Redirect("~/Login.aspx");
+            }
+        }
+
 
         protected void btnSendInvoice_Click(object sender, EventArgs e)
         {
@@ -351,6 +414,22 @@ namespace Cosmatics.User
                 // Dispose the MemoryStream
                 attachmentStream.Dispose();
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserHome.aspx");
+
+        }
+
+        protected void Address(object sender, EventArgs e)
+        {
+            string user;
+            user = Session["ID"].ToString();
+            string q = $"exec UserLogin '{user}'";
+            SqlCommand cmd = new SqlCommand(q, conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            
         }
     }
 
