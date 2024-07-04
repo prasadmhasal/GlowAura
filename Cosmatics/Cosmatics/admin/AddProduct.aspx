@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="mybg">
-        <div class="container mt-5 mb-2  overflow-hidden">
-            <div runat="server" class="form-container w-50 border shadow offset-3">
+        <div class="container mt-5 mb-2 mb-5 overflow-hidden">
+            <div runat="server" class="form-container w-50 border shadow offset-3 rounded">
                 <div style="padding: 20px">
                     <h2 class="text-center">Add Product</h2>
 
@@ -50,7 +50,7 @@
                     <br />
 
                     <div class="form-group">
-                        <asp:Label ID="Label1" runat="server" Text="Shade"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Tone"></asp:Label>
                         <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control">
                             <asp:ListItem>Cool</asp:ListItem>
                             <asp:ListItem>Netural</asp:ListItem>
@@ -59,7 +59,7 @@
                     </div>
 
 
-                    <div class="form-group text-center mt-2">
+                    <div class="form-group text-center mt-3">
                         <asp:Button ID="Button1" runat="server" Text="Add" CssClass="btn btn-dark btn-block w-100" OnClick="Button1_Click"  />
                     </div>
                 </div>

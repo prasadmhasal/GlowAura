@@ -115,8 +115,9 @@
                 <div class="card bg-c-blue order-card">
                     <div class="card-block ">
                         <h6 class="m-b-20">Orders Received</h6>
-                        <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                        <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>
+                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label></span></h2>
+                        <p class="m-b-0">Orders Received<span class="f-right"><asp:Label ID="Label6" runat="server" Text="Label"></asp:Label></span></p>
                     </div>
                 </div>
             </div>
@@ -124,9 +125,9 @@
             <div class="col-md-4 col-xl-3">
                 <div class="card bg-c-green order-card">
                     <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
-                        <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                        <h6 class="m-b-20">Orders Placed</h6>
+                        <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></span></h2>
+                        <p class="m-b-0">Orders Placed<span class="f-right"><asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></span></p>
                     </div>
                 </div>
             </div>
@@ -134,9 +135,10 @@
             <div class="col-md-4 col-xl-3">
                 <div class="card bg-c-yellow order-card">
                     <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
-                        <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                        <h6 class="m-b-20">Product Count</h6>
+                        <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>
+                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span></h2>
+                        <p class="m-b-0">Product Count<span class="f-right"> <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></span></p>
                     </div>
                 </div>
             </div>
@@ -144,9 +146,9 @@
             <div class="col-md-4 col-xl-3">
                 <div class="card bg-c-pink order-card">
                     <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
-                        <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                        <h6 class="m-b-20">User Account</h6>
+                        <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span><asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></span></h2>
+                        <p class="m-b-0">User Account<span class="f-right"><asp:Label ID="Label8" runat="server" Text="Label"></asp:Label></span></p>
                     </div>
                 </div>
             </div>
