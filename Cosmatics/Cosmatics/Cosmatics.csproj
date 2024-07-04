@@ -189,6 +189,7 @@
     <Content Include="admin\AddProduct.aspx" />
     <Content Include="admin\AdminHome.aspx" />
     <Content Include="admin\DeleteProduct.aspx" />
+    <Content Include="admin\enquiry.aspx" />
     <Content Include="admin\UpdateProduct.aspx" />
     <Content Include="admin\UserList.aspx" />
     <Content Include="Images\admin\adminpic.jpg" />
@@ -284,6 +285,13 @@
     </Compile>
     <Compile Include="admin\DeleteProduct.aspx.designer.cs">
       <DependentUpon>DeleteProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\enquiry.aspx.cs">
+      <DependentUpon>enquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\enquiry.aspx.designer.cs">
+      <DependentUpon>enquiry.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\UpdateProduct.aspx.cs">
       <DependentUpon>UpdateProduct.aspx</DependentUpon>

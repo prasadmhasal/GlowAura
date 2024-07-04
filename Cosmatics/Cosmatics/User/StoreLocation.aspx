@@ -188,30 +188,27 @@
 		</div>					
 		<div class="row">
 			<div class="col-lg-7">	
-				<div class="contact">
-					
-						<div class="row">
-							<div class="form-group col-md-6">	
-                                <asp:TextBox ID="TextBox1" runat="server"  name="name" class="form-control" placeholder="Name" required="required"></asp:TextBox>
-							</div>
-							<div class="form-group col-md-6">
-								
-                                <asp:TextBox ID="TextBox2" runat="server" type="email"  name="email" class="form-control" placeholder="Email" required="required"></asp:TextBox>
-							</div>
-							<div class="form-group col-md-12">
-								
-                                <asp:TextBox ID="TextBox3" runat="server" name="subject" class="form-control" placeholder="Subject" required="required"></asp:TextBox>
-							</div>
-							<div class="form-group col-md-12">
-								<textarea rows="6" name="message" class="form-control" runat="server" placeholder="Your Message" required="required"></textarea>
-                                
-							</div>
-							<div class="col-md-12 text-center mt-2">
-                               <asp:Button ID="submitButton" runat="server" Text="Send Message" Class="btn btn-contact mybutton" />
+                <div class="contact">
 
-							</div>
-						</div>
-				</div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" placeholder="Name" required="required"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <asp:TextBox ID="TextBox2" runat="server" TextMode="Email" CssClass="form-control" placeholder="Email" required="required"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" placeholder="Subject" required="required"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <asp:TextBox ID="myTextarea" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Your Message" required="required"></asp:TextBox>
+                        </div>
+                        <div class="col-md-12 text-center mt-2">
+                            <asp:Button ID="submitButton" runat="server" Text="Send Message" CssClass="btn btn-contact mybutton" OnClick="Button2_Click" />
+                        </div>
+                    </div>
+
+                </div>
 			</div><!--- END COL --> 
 			<div class="col-lg-5">
 				<div class="single_address">
@@ -222,7 +219,7 @@
 				<div class="single_address">
 					<i class="fa fa-envelope"></i>
 					<h4>Send your message</h4>
-					<p>Info@example.com</p>
+					<p>GlowAura@gmail.com</p>
 				</div>
 				<div class="single_address">
 					<i class="fa fa-phone"></i>

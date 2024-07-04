@@ -37,24 +37,29 @@
                             </li>
 
                             <li class="nav-item">
-                                 <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink2" runat="server" NavigateUrl="~/admin/AddProduct.aspx">
+                                <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink2" runat="server" NavigateUrl="~/admin/AddProduct.aspx">
                                     <i class="fs-4 bi-table"></i><span class="ms-1 d-none d-sm-inline text-light">Add Product</span>                              
-                                     </asp:HyperLink>
+                                </asp:HyperLink>
                             </li>
                             <li class="nav-item">
-                                 <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink4" runat="server" NavigateUrl="~/admin/UpdateProduct.aspx">
+                                <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink4" runat="server" NavigateUrl="~/admin/UpdateProduct.aspx">
                                     <i class="fs-4 bi-grid"></i><span class="ms-1 d-none d-sm-inline text-light">Update Products</span>
 
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item">
-                                 <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink3" runat="server" NavigateUrl="~/admin/DeleteProduct.aspx">
+                                <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink3" runat="server" NavigateUrl="~/admin/DeleteProduct.aspx">
                                     <i class="fs-4 bi-people"></i><span class="ms-1 d-none d-sm-inline text-light">Delete Product</span>
-                                 </asp:HyperLink>
+                                </asp:HyperLink>
                             </li>
                             <li class="nav-item">
                                 <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink5" runat="server" NavigateUrl="~/admin/UserList.aspx">
                                    <i class="fs-4 bi-people"></i><span class="ms-1 d-none d-sm-inline text-light">User List</span>
+                                </asp:HyperLink>
+                            </li>
+                            <li class="nav-item">
+                                <asp:HyperLink class="nav-link align-middle px-0" ID="HyperLink7" runat="server" NavigateUrl="~/admin/enquiry.aspx">
+                                     <i class="fs-4 bi-people"></i><span class="ms-1 d-none d-sm-inline text-light">Enquiry List</span>
                                 </asp:HyperLink>
                             </li>
                         </ul>
@@ -85,7 +90,7 @@
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
-                
+
             </div>
 
         </div>

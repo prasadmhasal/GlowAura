@@ -27,7 +27,7 @@ namespace Cosmatics.User
                 string pname, pcat, pic, dt, suser;
                 double price, totalprice;
                 double qty;
-                int UserId;
+             
                 if (e.CommandName == "AddToCart")
                 {
                     string id = e.CommandArgument.ToString();
